@@ -1,12 +1,9 @@
 dotnet restore
 
-dotnet clean --configuration Debug
-dotnet clean --configuration Release
+dotnet build TauCode.AppComposition.Mq.sln -c Debug
+dotnet build TauCode.AppComposition.Mq.sln -c Release
 
-dotnet build --configuration Debug
-dotnet build --configuration Release
-
-dotnet test -c Debug .\test\TauCode.AppComposition.Mq.Tests\TauCode.AppComposition.Mq.Tests.csproj
-dotnet test -c Release .\test\TauCode.AppComposition.Mq.Tests\TauCode.AppComposition.Mq.Tests.csproj
+dotnet test TauCode.AppComposition.Mq.sln -c Debug
+dotnet test TauCode.AppComposition.Mq.sln -c Release
 
 nuget pack nuget\TauCode.AppComposition.Mq.nuspec
